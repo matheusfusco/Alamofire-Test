@@ -13,6 +13,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let manager = APIManager()
+        manager.get { (response) in
+            if let resp = response as? ResponseModel {
+                print("Manager response: \(resp)")
+            }
+            else {
+                print("Manager error: \(response)")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,4 +32,3 @@ class ViewController: UIViewController {
 
 
 }
-
